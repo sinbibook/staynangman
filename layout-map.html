@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="거제의 자연을 담은 감성 공간">
+  <!-- Preload critical resources -->
+  <link rel="preload" href="styles/common.css" as="style">
+  <link rel="preload" href="styles/layout-map.css" as="style">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="styles/theme.css">
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/layout-map.css">
+
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="page-hero-section">
+        <div class="hero-background">
+            <img data-layout-map-hero-image>
+        </div>
+        <div class="page-title">
+            <span class="property-name-kr" data-property-name></span>
+            <h1 class="typing-text" data-text="LAYOUT MAP" style="--text-length: 10;">LAYOUT MAP</h1>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main class="layout-map-page">
+        <!-- Layout Map Intro Section -->
+        <div class="layout-map-intro-section">
+            <div class="layout-map-intro-content animate-element">
+                <!-- layoutMap.sections[0].hero.title 매핑 -->
+                <h2 class="layout-map-title" data-layout-map-about-title></h2>
+                <!-- layoutMap.sections[0].hero.description 매핑 -->
+                <p class="layout-map-description" data-layout-map-about-description></p>
+            </div>
+        </div>
+
+        <!-- Layout Map Content - 이미지와 설명이 교대로 나옴 -->
+        <div class="layout-map-content">
+            <!-- Layout Map Item 1 -->
+            <div class="layout-map-item animate-element">
+                <img alt="배치도" class="layout-map-image" data-layout-map-image-0>
+            </div>
+
+            <!-- Layout Map Description 1 -->
+            <div class="layout-map-description-item animate-element">
+                <p data-layout-map-description-0></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Closing Section - Full Banner -->
+    <section class="full-banner" data-layout-map-closing>
+        <img src="" alt="마무리 섹션 이미지" data-layout-map-closing-image>
+        <div class="closing-property-name" data-closing-property-name-en></div>
+    </section>
+
+    <!-- Common JavaScript -->
+    <script src="js/common.js"></script>
+
+    <!-- Include ImageWithFallback script -->
+    <script src="js/image-with-fallback.js"></script>
+
+    <!-- Image Helpers -->
+    <script src="js/image-helpers.js"></script>
+
+    <!-- Base Data Mapper (must load before preview-handler) -->
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="js/preview-handler.js"></script>
+
+    <!-- Layout Map Mapper -->
+    <script src="js/data-mapper/pages/layout-map-mapper.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="js/header-footer-loader.js"></script>
+
+    <!-- Scroll Animations -->
+  <script src="js/common/scroll-animations.js"></script>
+
+    <!-- Page-specific script -->
+    <script src="js/pages/layout-map.js"></script>
+
+</body>
+</html>

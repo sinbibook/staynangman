@@ -1,0 +1,1174 @@
+/* Facility Page Styles */
+
+/* Facility Hero Section with Slider */
+.facility-hero-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Hero Fade-in Animation on Page Load */
+.facility-hero-section.fade-in-hero {
+    opacity: 0;
+    animation: heroFadeIn 1.5s ease-out forwards;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.facility-hero-slider-container {
+    position: relative;
+    height: 100%;
+}
+
+.facility-hero-slider-container .slider {
+    height: 100%;
+    position: relative;
+}
+
+/* Facility 페이지 슬라이더 스타일 */
+.facility-hero-slider-container .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.facility-hero-slider-container .slide.active {
+    opacity: 1;
+}
+
+
+.facility-hero-content-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 80px;
+    z-index: 10;
+    pointer-events: none; /* 터치 이벤트가 슬라이더로 전달되도록 */
+}
+
+/* 버튼과 텍스트는 클릭/터치 가능하도록 */
+.facility-hero-content-overlay * {
+    pointer-events: auto;
+}
+
+.facility-hero-content-container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    text-align: left;
+}
+
+
+/* 숙소 영문명 - 작게 */
+.facility-hero-property-name {
+    font-family: var(--font-en-main);
+    font-size: 24px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+/* 시설 타이틀 */
+.facility-hero-title {
+    font-size:48px;
+    font-weight: 500;
+    color: white;
+    line-height: 1.2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Slider Navigation for Facility Hero - Index.html style */
+.facility-hero-slider-container .slider-nav {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 30px;
+    width: 300px;
+    margin: 30px 0 0;
+}
+
+.facility-hero-slider-container .slider-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.facility-hero-slider-container .slider-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+}
+
+.facility-hero-slider-container .slider-btn:hover {
+    opacity: 1;
+}
+
+/* Progress Bar for Facility Hero - Index.html style */
+.facility-hero-slider-container .progress-container {
+    width: 100%;
+    max-width: 600px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.facility-hero-slider-container .progress-bar {
+    height: 100%;
+    background: white;
+    width: 0;
+    transition: width 0.1s linear;
+    border-radius: 1px;
+}
+
+/* Second Section: Facility Top Intro Section */
+.facility-top-intro-section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.facility-intro-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.facility-intro-image {
+    width: 50%;
+    flex: 0 0 auto;
+    border-radius: 400px 400px 0 0;
+    overflow: hidden; /* wipe 효과를 위해 hidden으로 변경 */
+    position: relative;
+}
+
+/* 그림자는 애니메이션 완료 후에만 나타남 */
+.facility-intro-image.shadow-ready {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: visible; /* 애니메이션 완료 후 overflow visible로 변경 */
+    transition: box-shadow 0.6s ease-out;
+}
+
+/* 그림자 도형 - 애니메이션 완료 후에만 생성 */
+.facility-intro-image.shadow-ready::before {
+    content: '';
+    position: absolute;
+    top: 30px;  /* 아래로 30px 이동 */
+    left: -30px;  /* 왼쪽으로 30px 이동 */
+    width: 100%;
+    height: 100%;
+    background: color-mix(in srgb, var(--color-secondary) 20%, transparent);
+    border-radius: 400px 400px 0 0;
+    z-index: -1;
+    animation: shadowAppear 0.6s ease-out forwards;
+}
+
+@keyframes shadowAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.facility-intro-image img {
+    width: 100%;
+    height: 530px;
+    object-fit: cover;
+    display: block;
+    border-radius: 400px 400px 0 0; /* 이미지에도 border-radius 추가 */
+    position: relative;
+    z-index: 1;
+}
+
+/* Wipe reveal animation for dome image */
+.facility-intro-image.wipe-reveal img {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.facility-intro-image.wipe-reveal.visible img {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.facility-intro-text {
+    width: 50%;
+    flex: 0 0 auto;
+    color: var(--color-secondary, #658399);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 500px;
+    margin-top: 30px;
+}
+
+.facility-intro-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.facility-intro-bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.facility-intro-subtitle {
+    font-family: var(--font-en-main);
+    font-size: 28px;
+    letter-spacing: 3px;
+    color: var(--color-secondary, #658399);
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.facility-intro-title {
+    
+    font-size: 30px;
+    font-weight: bold;
+    color: var(--color-secondary, #658399);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+/* 새로 추가된 description (작은 글씨) */
+.facility-intro-desc {
+    
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-secondary, #658399);
+    opacity: 0.9;
+    margin: 0;
+}
+
+.facility-intro-bottom {
+    border-top: 1px solid var(--color-secondary, #658399);
+    padding-top: 20px;
+}
+
+/* 이용안내 텍스트 */
+.facility-intro-usage {
+    
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    color: var(--color-secondary, #658399);
+}
+
+/* Usage Guide Section */
+.facility-usage-section {
+    padding: 80px 0;
+    background: var(--color-primary, #e6f3ff);
+    display: none; /* 기본적으로 숨김 */
+    position: relative;
+}
+
+/* Slower slide-up animation for usage boxes */
+.usage-box.animate-on-scroll.slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.usage-box.animate-on-scroll.slide-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.facility-usage-section.has-content {
+    display: block; /* 내용이 있을 때만 표시 */
+}
+
+.facility-usage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2; /* 패턴 위에 콘텐츠가 오도록 */
+}
+
+.usage-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.usage-box {
+    padding: 40px;
+    padding-top: 50px; /* 상단 여백 추가 (영문 소제목 공간 확보) */
+    border-radius: 0;
+    border: 1px solid var(--color-secondary, #658399);
+    position: relative;
+}
+
+.usage-box-title {
+    
+    font-size: 20px;
+    color: var(--color-secondary, #658399);
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-secondary, #658399);
+    position: relative;
+}
+.usage-box-content {
+    
+    font-size: 14px;
+    line-height: 1.8;
+    color: #666;
+}
+
+.usage-box-content .content-item {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.usage-box-content .content-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-secondary, #658399);
+}
+
+.usage-box-content .content-title {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.usage-box-content .content-description {
+    color: #666;
+}
+
+/* Third Section: Facility Special Section */
+.facility-special-section {
+    background: var(--color-primary, #e6f3ff);
+    padding: 100px 0;
+    min-height: 100vh;
+    position: relative;
+}
+
+.facility-special-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+/* Left side - Special title and image */
+.facility-special-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.facility-special-title {
+    font-family: var(--font-en-main);
+    font-size: 100px;
+    font-weight: 300;
+    color: var(--color-secondary, #658399);
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.facility-special-image-left {
+    width: 400px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.facility-special-image-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Right side - Pool image and text */
+.facility-special-right {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 60px;
+}
+
+.facility-special-image-right {
+    width: 650px;
+    height: 450px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    margin-left: auto;
+}
+
+.facility-special-image-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Wipe Slider Animation Styles for Special Section */
+.facility-special-image-left img,
+.facility-special-image-right img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 0;
+}
+
+.facility-special-image-left img.active,
+.facility-special-image-right img.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.facility-special-image-left img:first-child,
+.facility-special-image-right img:first-child {
+    position: relative;
+}
+
+.facility-special-text {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.facility-special-subtitle {
+    font-family: var(--font-en-main);
+    font-size: 48px;
+    font-weight: 300;
+    color: var(--color-secondary, #658399);
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.facility-special-description {
+    
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--color-secondary, #658399);
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+
+/* Hero Section with Gradient Background - Removed duplicate, using the one at line 4 */
+
+/* Facility List Container */
+.facility-list-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Facility Item */
+.facility-item {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    margin-bottom: 150px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.facility-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.facility-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Facility Image */
+.facility-image {
+    flex: 0 0 50%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.facility-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Facility Content */
+.facility-content {
+    flex: 1;
+    padding: 40px;
+}
+
+.facility-subtitle {
+    
+    font-size: 14px;
+    color: rgba(101, 131, 153, 0.8);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.facility-title-en {
+    font-family: var(--font-en-main);
+    font-size: 72px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.facility-title-kr {
+    
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.facility-description {
+    
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+.facility-details {
+    margin-top: 30px;
+}
+
+.facility-detail-item {
+    
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.facility-detail-item::before {
+    content: '"';
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Stagger animation delay */
+.facility-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.facility-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+/* Animations */
+/* fadeInUp animation is defined in common.css */
+
+/* Existing Facility Styles (0t ��|  �) */
+.facility-intro-section {
+    padding: 100px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.facility-intro-content {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.facility-label {
+    display: inline-block;
+    padding: 10px 25px;
+    background: rgba(101, 131, 153, 0.1);
+    border-radius: 30px;
+    margin-bottom: 30px;
+}
+
+.facility-name {
+    font-family: var(--font-en-main);
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--color-secondary, #658399);
+    text-transform: uppercase;
+}
+
+/* Facility Info Section */
+.facility-info-section {
+    padding: 60px 0;
+    margin-bottom: 100px;
+}
+
+.facility-info-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.facility-info-content {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.facility-info-section-reversed .facility-info-content {
+    flex-direction: row-reverse;
+}
+
+.facility-info-left {
+    flex: 0 0 45%;
+}
+
+.facility-info-right {
+    flex: 1;
+}
+
+.facility-info-image {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 400px;
+}
+
+.facility-info-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.facility-info-title {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    font-family: var(--font-en-main);
+    font-size: 36px;
+    color: white;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.facility-detail-section {
+    margin-bottom: 40px;
+}
+
+.facility-detail-title {
+    
+    font-size: 24px;
+    color: var(--color-secondary, #658399);
+    margin-bottom: 20px;
+}
+
+.facility-content-text {
+    
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* Gallery Section */
+.facility-gallery-section {
+    padding: 80px 0;
+}
+
+.facility-gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px;
+}
+
+.gallery-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.gallery-item-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.gallery-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-item-image img {
+    transform: scale(1.05);
+}
+
+.gallery-item-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 30px;
+}
+
+.gallery-item-title {
+    
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+/* Responsive Design for Usage Section */
+@media (max-width: 1024px) {
+    .usage-boxes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .facility-hero-section {
+        height: 70vh;
+    }
+
+    .usage-boxes {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .usage-box {
+        padding: 25px;
+    }
+
+    .facility-usage-section {
+        padding: 50px 0;
+    }
+}
+
+/* Responsive Design for Special Section */
+@media (max-width: 1024px) {
+    .facility-special-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .facility-special-title {
+        font-size: 80px;
+    }
+
+    .facility-special-subtitle {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 768px) {
+    .facility-special-section {
+        padding: 60px 0;
+    }
+
+    .facility-special-container {
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .facility-special-title {
+        font-size: 60px;
+    }
+
+    .facility-special-subtitle {
+        font-size: 28px;
+    }
+
+    .facility-special-text {
+        text-align: left;
+        padding-right: 0;
+    }
+
+    .facility-special-image-left {
+        width: 100%;
+        height: 300px;
+    }
+
+    .facility-special-image-right {
+        width: 100%;
+        height: 250px;
+        margin-left: 0;
+    }
+
+    .facility-special-right {
+        padding-top: 0;
+    }
+}
+
+/* Existing Responsive Design */
+@media (max-width: 1024px) {
+    .facility-hero-title {
+        font-size: 48px;
+    }
+
+    .facility-hero-property-name {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Hero section - full width, no margins */
+    .facility-hero-section {
+        height: 65vh;
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        order: -1; /* Ensure it appears first */
+    }
+
+    .facility-intro-text {
+        width: 100%;
+        order: 1;
+    }
+    .facility-intro-image {
+        order: 2;
+    }
+
+    /* Main content wrap adjustments */
+    .main-content .content-wrap {
+        padding: 0;
+        margin: 0;
+    }
+
+    .facility-hero-slider-container {
+        height: 100%;
+    }
+
+    .facility-hero-slider-container .slider {
+        height: 100%;
+    }
+
+    .facility-hero-slider-container .slider .slide {
+        height: 100%;
+    }
+
+    .facility-hero-content-overlay {
+        padding: 20px;
+    }
+
+    .facility-hero-content-container {
+        padding: 0;
+        text-align: center;
+    }
+
+    .facility-hero-title {
+        font-size: 28px;
+    }
+
+    .facility-hero-property-name {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .facility-hero-text-content {
+        margin-bottom: 30px;
+    }
+
+    /* Progress bar mobile adjustments */
+    .facility-hero-slider-container .slider-nav {
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin: 30px auto 0;
+    }
+
+    .facility-hero-slider-container .progress-container {
+        max-width: 250px;
+    }
+
+    /* Navigation buttons mobile */
+    .facility-hero-slider-container .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .facility-hero-section {
+        height: 65vh; /* Keep 65vh for consistency */
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
+    .facility-hero-title {
+        font-size: 24px;
+    }
+
+    .facility-hero-property-name {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    /* Even smaller buttons on very small screens */
+    .facility-hero-slider-container .slider-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+    }
+
+    .facility-hero-slider-container .slider-nav {
+        gap: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .facility-hero-slider-container .progress-container {
+        max-width: 250px;
+    }
+}
+
+/* Large screens - make special images bigger */
+@media (min-width: 1920px) {
+    .facility-special-image-left {
+        width: 500px;
+        height: 600px;
+    }
+
+    .facility-special-image-right {
+        width: 800px;
+        height: 550px;
+    }
+
+    .facility-special-container {
+        max-width: 1600px;
+    }
+}
+
+/* Extra large screens - even bigger */
+@media (min-width: 2560px) {
+    .facility-special-image-left {
+        width: 600px;
+        height: 700px;
+    }
+
+    .facility-special-image-right {
+        width: 1000px;
+        height: 650px;
+    }
+
+    .facility-special-container {
+        max-width: 2000px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .facility-item {
+        gap: 50px;
+        margin-bottom: 100px;
+    }
+
+    .facility-title-en {
+        font-size: 56px;
+    }
+
+    .facility-info-content {
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .facility-top-intro-section {
+        padding: 0;
+    }
+
+    .facility-intro-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .facility-intro-image {
+        flex: none;
+        width: 100%;
+        border-radius: 200px 200px 0 0;
+    }
+
+    .facility-intro-image img {
+        height: 300px;
+    }
+
+    .facility-intro-text {
+        padding: 20px;
+        height: auto;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+
+    .facility-intro-title {
+        font-size: 24px;
+    }
+
+    .facility-intro-desc {
+        font-size: 12px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .facility-item,
+    .facility-item:nth-child(even) {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .facility-image {
+        flex: none;
+        width: 100%;
+    }
+
+    .facility-image img {
+        height: 300px;
+    }
+
+    .facility-content {
+        padding: 20px;
+    }
+
+    .facility-title-en {
+        font-size: 42px;
+    }
+
+    .facility-title-kr {
+        font-size: 24px;
+    }
+
+    .facility-description {
+        font-size: 16px;
+    }
+
+    .facility-info-content,
+    .facility-info-section-reversed .facility-info-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .facility-info-left {
+        flex: none;
+        width: 100%;
+    }
+
+    .facility-gallery-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .facility-title-en {
+        font-size: 32px;
+    }
+
+    .facility-title-kr {
+        font-size: 20px;
+    }
+
+    .facility-description {
+        font-size: 14px;
+    }
+
+    .facility-detail-item {
+        font-size: 13px;
+    }
+
+    .facility-info-title {
+        font-size: 28px;
+        left: 20px;
+        bottom: 20px;
+    }
+
+    /* Facility Special Section 모바일 표시 */
+    .facility-special-section {
+        display: block !important;
+        min-height: auto;
+        padding: 40px 0;
+    }
+    .facility-special-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .facility-special-left,
+    .facility-special-right {
+        width: 100%;
+    }
+    .facility-special-image-left,
+    .facility-special-image-right {
+        width: 100%;
+        height: 200px;
+        margin: 10px 0;
+    }
+    .facility-special-title {
+        font-size: 32px;
+    }
+    .facility-special-subtitle {
+        font-size: 18px;
+    }
+}

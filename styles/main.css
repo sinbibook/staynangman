@@ -1,0 +1,532 @@
+/* Main �t� � ��| */
+
+/* �t� ��\ 9X */
+.page-hero-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ��l� 0� t�� */
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* 애니메이션 키프레임 */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInCenter {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinkCursor {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* �t� � (Prologue) */
+.page-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    text-align: center;
+    opacity: 1;
+}
+
+/* page-title h1 스타일은 common.css에서 관리 */
+
+
+/* �t�� $� �Lt (index.html ��|�  �) */
+/* main-container 스타일은 common.css로 이동 */
+
+.text-content {
+    position: relative;
+    margin-bottom: 80px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+
+/* logo-line-container 스타일은 common.css로 이동됨 */
+
+.hero-content {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-content .hero-title {
+    font-family: var(--font-ko-main);
+    font-size: 28px;  /* essence-title과 동일 */
+    font-weight: 700;
+    color: var(--color-secondary, #658399);
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+    display: block;
+    width: 100%;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+}
+
+.text-content .hero-description {
+    font-family: var(--font-ko-sub);
+    font-size: 17px;  /* essence-description과 동일 */
+    color: #666;
+    line-height: 1.8;
+    text-align: right;
+    max-width: 600px;
+    margin-left: auto;
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+
+.hero-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    margin-bottom: 60px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 180px;
+    padding: 0;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    /* 전체 컨테이너에 그라데이션 적용 */
+    background: linear-gradient(to bottom,
+        var(--color-primary) 0%,
+        var(--color-secondary) 50%,
+        var(--color-secondary) 100%);
+}
+
+/* 소개 블록 - 배경 제거 */
+.about-block {
+    position: relative;
+    width: 100vw;
+    margin: 0;
+    min-height: 600px;
+    opacity: 1;
+    /* 개별 블록 배경 제거 */
+    background: transparent;
+}
+
+/* 개별 블록 배경 스타일 제거 - 컨테이너 레벨에서 그라데이션 적용 */
+
+.about-block:last-child {
+    margin-bottom: 0;
+}
+
+.about-content {
+    position: relative;
+}
+
+.about-content::after {
+    content: '';
+    display: block;
+    width: 100vw;
+    height: 100px;
+    background: var(--color-secondary);
+    opacity: 0.8;
+    position: relative;
+    left: 0;
+}
+
+/* 짝수 번째 about-block - 반대 레이아웃 */
+.about-block:nth-child(even) .about-image {
+    left: auto;
+    right: 20px;
+    transform: translateX(100px);
+}
+
+/* 짝수 블록 이미지 - 오른쪽에서 나타남 */
+.about-block:nth-child(even) .about-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-block:nth-child(even) .about-text {
+    right: auto;
+    left: 20px;
+    text-align: left;
+    transform: translateY(-50%) translateX(-100px);
+}
+
+/* 짝수 블록 텍스트 - 왼쪽에서 나타남 */
+.about-block:nth-child(even) .about-text.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* 짝수 번째 about-text 세로줄 위치 조정 */
+.about-block:nth-child(even) .about-text::after {
+    right: auto;
+    left: 0;
+}
+
+/* 내부 컨테이너 - 최대 너비 제한 */
+.about-block-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 600px;
+    padding: 80px 20px 100px;
+}
+
+/* 세로 이미지 컨테이너 - 왼쪽에 위치 */
+.about-image {
+    width: 500px;
+    height: 600px;
+    position: absolute;
+    left: 20px;
+    top: -50px;
+    border-radius: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 2;
+}
+
+/* 홀수 블록 이미지 - 왼쪽에서 나타남 */
+.about-block:nth-child(odd) .about-image.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 텍스트 영역 - 우측에 위치 */
+.about-text {
+    position: absolute;
+    right: 20px;
+    top: 60%;
+    transform: translateY(-50%) translateX(100px);
+    width: 50%;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    z-index: 1;
+}
+
+/* 홀수 블록 텍스트 - 오른쪽에서 나타남 */
+.about-block:nth-child(odd) .about-text.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* about-text 영역 우측 세로줄 */
+.about-text::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 1px;
+    height: calc(100% + 100px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.about-title {
+    font-family: var(--font-ko-main);
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 20px 0;
+    line-height: 1.3;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.about-description {
+    font-family: var(--font-ko-sub);
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.8;
+    margin: 0;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+}
+
+/* 모든 블록 어두운 색상 텍스트로 통일 */
+.about-block .about-title {
+    color: var(--color-primary);
+}
+
+.about-block .about-description {
+    color: var(--color-primary);
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: normal;
+    color: white;
+    margin: 0 0 20px 0;
+    line-height: 1.1;
+    letter-spacing: 2px;
+}
+
+.hero-description {
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+
+/* Q ��| */
+@media (max-width: 1024px) {
+    /* page-title h1은 common.css에서 관리 */
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    /* About block tablet styles */
+    .about-block-inner {
+        padding: 60px 20px 80px;
+        height: 500px;
+    }
+
+    .about-image {
+        width: 400px;
+        height: 500px;
+        left: 20px;
+        top: -30px;
+    }
+
+    .about-text {
+        width: 50%;
+        padding: 30px 40px;
+    }
+
+    .about-block:nth-child(even) .about-image {
+        right: 20px;
+    }
+
+    .about-block:nth-child(even) .about-text {
+        left: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-hero-section {
+        height: 70vh;
+    }
+
+    /* page-title h1은 common.css에서 관리 */
+
+    /* main-container 스타일은 common.css로 이동 */
+
+    .hero-text-content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+        max-width: 90%;
+    }
+
+    /* About 블록 모바일 - 새로운 디자인 */
+    .about-content {
+        gap: 0;
+        margin-top: 100px;
+    }
+
+    .about-block {
+        min-height: auto;
+        padding: 80px 0;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .about-block-inner {
+        height: auto;
+        padding: 0;
+    }
+
+    .about-block .about-image {
+        position: relative;
+        width: 90%;
+        height: 350px;
+        left: auto;
+        right: auto;
+        transform: none;
+        top: 0;
+        border-radius: 0;
+        margin: 0 auto 40px;
+        display: block;
+        opacity: 1 !important;
+    }
+
+    .about-text {
+        position: relative;
+        width: 90%;
+        max-width: none;
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+        top: 0;
+        right: auto;
+        left: auto;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    /* visible 클래스가 추가되어도 transform 제거 */
+    .about-block:nth-child(even) .about-text.visible,
+    .about-block:nth-child(odd) .about-text.visible {
+        transform: none !important;
+        opacity: 1;
+    }
+
+    /* 모바일에서 세로줄 숨김 */
+    .about-text::after {
+        display: none;
+    }
+
+    /* 짝수 번째 블록도 동일하게 중앙정렬 */
+    .about-block:nth-child(even) .about-image {
+        left: auto;
+        right: auto;
+        transform: none;
+        margin: 0 auto 40px;
+    }
+
+    .about-block:nth-child(even) .about-text {
+        text-align: center;
+        left: auto;
+        right: auto;
+        margin: 0 auto;
+    }
+
+    .about-title {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .about-description {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* page-title h1은 common.css에서 관리 */
+
+    /* main-container 스타일은 common.css로 이동 */
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    /* About 블록 480px - 새로운 디자인 */
+    .about-content {
+        gap: 0;
+        margin-top: 80px;
+    }
+
+    .about-block {
+        min-height: auto;
+        padding: 60px 0;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .about-block-inner {
+        height: auto;
+        padding: 0;
+    }
+
+    .about-block .about-image {
+        width: 90%;
+        height: 250px;
+        left: auto;
+        right: auto;
+        transform: none;
+        border-radius: 0;
+        margin: 0 auto 25px;
+        display: block;
+    }
+
+    .about-text {
+        padding: 0 20px;
+    }
+
+    .about-title {
+        font-size: 20px;
+    }
+
+    .about-description {
+        font-size: 13px;
+    }
+}

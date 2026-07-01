@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="거제의 자연을 담은 감성 공간">
+    <title>거제 스테이낭만</title>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/common.css" as="style">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/theme.css">
+
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #footer-placeholder {
+            margin-top: auto;
+        }
+
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 120px 20px 50px;
+            text-align: center;
+        }
+
+        .error-icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 30px;
+        }
+
+        .error-code {
+            font-size: 80px;
+            font-weight: 900;
+            color: var(--color-secondary, #658399);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .error-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .error-message {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            max-width: 500px;
+        }
+
+        .error-button {
+            display: inline-block;
+            padding: 12px 40px;
+            background: var(--color-secondary, #658399);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .error-button:hover {
+            background: #5a7185;
+            transform: translateY(-2px);
+        }
+    </style>
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Error Content -->
+    <main class="error-container">
+        <svg class="error-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <!-- Browser window border -->
+            <rect x="8" y="10" width="84" height="80" rx="6" fill="none" stroke="#4a5568" stroke-width="3"/>
+
+            <!-- Browser top bar -->
+            <rect x="8" y="10" width="84" height="18" rx="6" fill="none" stroke="#4a5568" stroke-width="3"/>
+            <line x1="8" y1="28" x2="92" y2="28" stroke="#4a5568" stroke-width="2"/>
+
+            <!-- Browser menu dots -->
+            <circle cx="28" cy="18" r="2" fill="#4a5568"/>
+            <circle cx="38" cy="18" r="2" fill="#4a5568"/>
+            <circle cx="48" cy="18" r="2" fill="#4a5568"/>
+
+            <!-- 404 text in red -->
+            <text x="50" y="58" font-size="36" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#e86d6d" font-family="Arial, sans-serif">404</text>
+        </svg>
+        <h1 class="error-title">페이지를 찾을 수 없습니다.</h1>
+        <p class="error-message">
+            요청하신 페이지가 존재하지 않거나 비활성화되었습니다.<br>
+            홈으로 돌아가기 버튼을 클릭해주세요.
+        </p>
+        <button class="error-button" onclick="window.location.href='index.html'">
+            홈으로 돌아가기
+        </button>
+    </main>
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="js/preview-handler.js"></script>
+
+    <!-- Image Helpers -->
+    <script src="js/image-helpers.js"></script>
+
+    <!-- Base Data Mapper -->
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="js/header-footer-loader.js"></script>
+
+</body>
+</html>

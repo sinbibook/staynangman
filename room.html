@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거제 스테이낭만 - 객실안내</title>
+    <meta name="description" content="거제의 자연을 담은 감성 공간">
+    <meta name="keywords" content="거제공간풀빌라,공간풀빌라,거제풀빌라,거제도풀빌라,거제도풀빌라추천,거제도가족펜션,거제도독채펜션,거제도독채풀빌라,거제숙소,거제여행">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/common.css" as="style">
+    <link rel="preload" href="styles/room.css" as="style">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/room.css">
+
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만 - 객실안내" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만 - 객실안내" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+
+    <main class="main-content">
+
+        <!-- Room Hero Slider Section -->
+        <section class="room-hero-section">
+            <div class="room-hero-slider">
+                <div class="room-slider-container" data-room-slider>
+                    <!-- 동적으로 슬라이드가 생성됩니다 -->
+                </div>
+
+                <!-- Room Name Overlay - 슬라이더 중앙에 표시 -->
+                <div class="room-name-overlay">
+                    <div class="room-hero-circular-text">
+                        <svg viewBox="0 0 240 240">
+                            <path id="hero-text-path" d="M120,30 A90,90 0 1,1 119.9,30" fill="none"/>
+                            <text>
+                              <!-- 숙소 영문명 매핑 fixed -->
+                                <textPath href="#hero-text-path" data-hero-circular-property-text>
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <!-- 객실명 매핑 fixed -->
+                    <h2 class="room-title-overlay" data-room-name></h2>
+                </div>
+
+                <!-- Slider Navigation - Desktop -->
+                <div class="room-slider-nav">
+                    <button class="room-nav-btn room-nav-prev" id="room-prev-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="room-nav-btn room-nav-next" id="room-next-btn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <div class="room-slider-nav-mobile">
+                    <button class="room-nav-btn-mobile room-nav-prev-mobile" id="room-prev-btn-mobile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="room-nav-btn-mobile room-nav-next-mobile" id="room-next-btn-mobile">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Room Name Section (모바일 전용) -->
+        <section class="room-name-section">
+            <div class="room-hero-text">
+                <div class="room-name-wrapper">
+                    <div class="room-hero-circular-text">
+                        <svg viewBox="0 0 240 240">
+                            <path id="hero-text-path" d="M120,30 A90,90 0 1,1 119.9,30" fill="none"/>
+                            <text>
+                              <!-- 숙소 영문명 매핑 fixed -->
+                                <textPath href="#hero-text-path" data-hero-circular-property-text-mobile>
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+                    <!-- 객실명 매핑 fixed -->
+                    <h2 class="room-title animate-on-scroll" data-room-name-mobile></h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- Room Description Section -->
+        <section class="room-description-section">
+            <div class="room-description-container">
+                <!-- 객실 설명 매핑 fixed -->
+                <p class="room-description animate-on-scroll" data-room-info-description></p>
+            </div>
+        </section>
+
+        <div class="content-wrap">
+        <section class="room-info-section">
+            <div class="room-info-container">
+                <div class="room-info-content">
+                    <!-- 하드코딩 fixed -->
+                    <h2 class="room-info-title-styled animate-on-scroll">Room Information</h2>
+
+                    <!-- 객실 정보 매핑 -->
+                    <div class="room-details-section animate-on-scroll">
+                        <h4 class="details-section-title">
+                            객실 정보
+                            <button class="section-toggle-btn" data-toggle="room-details">
+                                <span class="toggle-minus">−</span>
+                                <span class="toggle-plus" style="display: none;">+</span>
+                            </button>
+                        </h4>
+                        <div class="room-details-content" data-content="room-details">
+                            <div class="room-details-grid">
+                            <div class="room-detail-item">
+                                <span class="detail-label">객실 크기</span>
+                                <span class="detail-value" data-room-size></span>
+                            </div>
+                            <div class="room-detail-item">
+                                <span class="detail-label">침대 타입</span>
+                                <span class="detail-value" data-room-bed-types></span>
+                            </div>
+                            <div class="room-detail-item">
+                                <span class="detail-label">객실 구성</span>
+                                <span class="detail-value" data-room-composition></span>
+                            </div>
+                            <div class="room-detail-item">
+                                <span class="detail-label">인원</span>
+                                <span class="detail-value" data-room-capacity></span>
+                            </div>
+                            <div class="room-detail-item">
+                                <span class="detail-label">체크인 / 체크아웃</span>
+                                <span class="detail-value"><span data-room-checkin></span> / <span data-room-checkout></span></span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 편의시설 섹션 매핑 -->
+                    <div class="room-amenities-section animate-on-scroll">
+                        <h4 class="amenities-section-title">
+                            편의시설
+                            <button class="section-toggle-btn" data-toggle="amenities">
+                                <span class="toggle-minus">−</span>
+                                <span class="toggle-plus" style="display: none;">+</span>
+                            </button>
+                        </h4>
+                        <div class="amenities-content" data-content="amenities">
+                            <div class="amenities-list" data-room-amenities-icons></div>
+                        </div>
+                    </div>
+
+                    <!-- 객실 이용규칙/안내사항 매핑 -->
+                    <div class="room-usage-guide animate-on-scroll">
+                        <h4 class="usage-guide-title">
+                            객실 안내사항
+                            <button class="section-toggle-btn" data-toggle="usage-guide">
+                                <span class="toggle-minus">−</span>
+                                <span class="toggle-plus" style="display: none;">+</span>
+                            </button>
+                        </h4>
+                        <div class="usage-guide-content" data-content="usage-guide">
+                          <p data-room-guide></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      </div>
+
+      <!-- 객실 썸네일 0번쨰 매핑 -->
+      <section class="full-banner animate-on-scroll" data-room-banner>
+      </section>
+
+      
+      <section class="exterior-gallery-section">
+        <div class="gallery-grid-container">
+          <!-- 갤러리 제목 하드코딩 fixed -->
+           <h2 class="room-info-title-styled animate-on-scroll">Exterior Gallery</h2>
+
+          <!-- CUSTOM FIELD : 갤러리 섹션 설명 매핑 -->
+          <h2 class="gallery-grid-title animate-fade-up" data-delay="400" data-room-gallery-title></h2>
+
+          <div class="gallery-grid-wrapper">
+            <!-- 3장 한 줄 -->
+            <div class="gallery-row row-3">
+              <div class="gallery-item animate-on-scroll slide-left" data-delay="600">
+                <img src="./images/room.jpg" alt="Gallery image">
+              </div>
+              <div class="gallery-item animate-on-scroll slide-up" data-delay="700">
+                <img src="./images/room2.jpg" alt="Gallery image">
+              </div>
+              <div class="gallery-item animate-on-scroll slide-right" data-delay="800">
+                <img src="./images/room3.jpg" alt="Gallery image">
+              </div>
+            </div>
+
+            <!-- 2장 한 줄 -->
+            <div class="gallery-row row-2">
+              <div class="gallery-item animate-on-scroll slide-left" data-delay="900">
+                <img src="./images/room4.jpg" alt="Gallery image">
+              </div>
+              <div class="gallery-item animate-on-scroll slide-right" data-delay="1000">
+                <img src="./images/room5.jpg" alt="Gallery image">
+              </div>
+            </div>
+
+            <!-- 1장 한 줄 -->
+            <div class="gallery-row row-1">
+              <div class="gallery-item animate-on-scroll slide-up" data-delay="1100">
+                <img src="./images/room6.jpg" alt="Gallery image">
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Include ImageWithFallback script -->
+    <script src="js/image-with-fallback.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="js/common.js"></script>
+
+    <!-- Image Helpers -->
+    <script src="js/image-helpers.js"></script>
+
+    <!-- Base Data Mapper -->
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+
+    <!-- Room Page Mapper -->
+    <script src="js/data-mapper/pages/room-mapper.js"></script>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="js/preview-handler.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="js/header-footer-loader.js"></script>
+
+    <!-- Scroll Animations -->
+    <script src="js/common/scroll-animations.js"></script>
+
+
+    <!-- Page-specific script -->
+    <script src="js/pages/room.js"></script>
+
+</body>
+</html>

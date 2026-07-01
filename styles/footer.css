@@ -1,0 +1,237 @@
+footer {
+    background-color: var(--color-secondary, #658399);
+    color: #fff;
+    padding: 40px 0;
+}
+
+.footer-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+}
+
+.footer-content::before {
+    content: '';
+    position: absolute;
+    left: 30%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-left {
+    flex: 0 0 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-logo-text {
+    font-family: var(--font-en-main);
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.footer-phone {
+    margin-top: 12px;
+}
+
+.footer-phone-text {
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-phone-text::before {
+    content: '📞';
+    font-size: 20px;
+    filter: brightness(0) invert(1);
+}
+
+.footer-right {
+    flex: 0 0 65%;
+    min-width: 0;
+    padding-left: 40px;
+}
+
+.footer-contact-info {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto auto;
+    gap: 35px 20px;
+    grid-template-areas:
+        "business social"
+        "business copyright";
+}
+
+.footer-business-info {
+    grid-area: business;
+}
+
+.footer-info-line {
+    font-size: 13px;
+    opacity: 0.9;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.social-section {
+    grid-area: social;
+    text-align: right;
+}
+
+.footer-copyright {
+    grid-area: copyright;
+    font-size: 12px;
+    opacity: 0.8;
+    margin: 0;
+    text-align: right;
+}
+
+.social-links {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    text-decoration: none;
+    color: #fff;
+    font-size: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .footer-content::before {
+        display: none;
+    }
+
+    .footer-left {
+        flex: none;
+        align-self: center;
+        text-align: center;
+    }
+
+    .footer-phone-text {
+        font-size: 20px;
+        justify-content: center;
+    }
+
+    .footer-right {
+        flex: none;
+        padding-left: 0;
+        align-self: stretch;
+        width: 100%;
+    }
+
+    .footer-contact-info {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+        grid-template-areas:
+            "business"
+            "social"
+            "copyright";
+        text-align: center;
+    }
+
+    .social-section {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .footer-copyright {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Top Button Styles */
+.top-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-secondary, #658399);
+    opacity: 0.8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.top-button:hover {
+    background-color: var(--color-secondary, #658399);
+    opacity: 0.7;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.top-button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.top-button svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Hide on mobile devices */
+@media (max-width: 768px) {
+    .top-button {
+        display: none;
+    }
+}

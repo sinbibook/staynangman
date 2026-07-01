@@ -1,0 +1,261 @@
+/* ===================================
+   Layout Map Page Styles
+   =================================== */
+
+
+/* Layout Map Page Container */
+.layout-map-page {
+    position: relative;
+    background: linear-gradient(to bottom, var(--color-primary, #e6f3ff) 0%, var(--color-secondary, #658399) 100%);
+}
+
+/* Layout Map Intro Section */
+.layout-map-intro-section {
+    padding: 80px 20px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.layout-map-intro-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Animate Element Styles */
+.animate-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.animate-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.layout-map-title {
+    font-family: var(--font-ko-main, 'Arial', sans-serif);
+    font-size: 2.5rem;
+    margin: 0 0 20px 0;
+    color: var(--color-secondary, #658399);
+    font-weight: 700;
+}
+
+.layout-map-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Layout Map Content - 이미지와 설명이 교대로 */
+.layout-map-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Layout Map Item */
+.layout-map-item {
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.layout-map-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    min-height: 400px;
+}
+
+/* Layout Map Images (deprecated - kept for compatibility) */
+.layout-map-images {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+}
+
+/* Layout Map Descriptions (deprecated - kept for compatibility) */
+.layout-map-descriptions {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px 100px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.layout-map-description-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+    border-radius: 12px;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+.layout-map-description-item h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-secondary, #658399);
+    margin: 0 0 15px 0;
+}
+
+.layout-map-description-item p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.8;
+    margin: 0;
+}
+
+/* Large Screen Responsive */
+@media (min-width: 1400px) {
+    .layout-map-images {
+        max-width: 1350px;
+    }
+
+    .layout-map-descriptions {
+        max-width: 1350px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .layout-map-images {
+        max-width: 1500px;
+    }
+
+    .layout-map-descriptions {
+        max-width: 1500px;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 1200px) {
+    .layout-map-intro-section {
+        padding: 60px 20px 50px;
+    }
+
+    .layout-map-title {
+        font-size: 2rem;
+    }
+
+    .layout-map-description {
+        font-size: 1.1rem;
+    }
+
+    .layout-map-images {
+        padding-bottom: 50px;
+    }
+
+    .layout-map-descriptions {
+        padding-bottom: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section.layout-map-hero {
+        height: 60vh;
+        min-height: 60vh;
+    }
+
+    .hero-property-name {
+        font-size: 36px;
+    }
+
+    .layout-map-intro-section {
+        padding: 50px 20px 40px;
+    }
+
+    .layout-map-title {
+        font-size: 1.8rem;
+    }
+
+    .layout-map-description {
+        font-size: 1rem;
+    }
+
+    .layout-map-content {
+        padding: 0 20px 60px;
+        gap: 40px;
+    }
+
+    .layout-map-image {
+        min-height: 350px;
+    }
+
+    .layout-map-image-description {
+        padding: 25px;
+        font-size: 0.95rem;
+    }
+
+    .closing-section.layout-map-closing {
+        min-height: 50vh;
+    }
+
+    .closing-property-name {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section.layout-map-hero {
+        height: 50vh;
+        min-height: 50vh;
+    }
+
+    .hero-property-name {
+        font-size: 28px;
+    }
+
+    .layout-map-intro-section {
+        padding: 40px 15px 30px;
+    }
+
+    .layout-map-title {
+        font-size: 1.5rem;
+    }
+
+    .layout-map-description {
+        font-size: 0.95rem;
+    }
+
+    .layout-map-content {
+        padding: 0 15px 50px;
+        gap: 30px;
+    }
+
+    .layout-map-image {
+        min-height: 300px;
+    }
+
+    .layout-map-image-description {
+        padding: 20px;
+        font-size: 0.9rem;
+    }
+
+    .closing-section.layout-map-closing {
+        min-height: 40vh;
+    }
+
+    .closing-property-name {
+        font-size: 32px;
+    }
+}

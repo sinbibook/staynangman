@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거제 스테이낭만 - 오시는길</title>
+    <meta name="description" content="거제의 자연을 담은 감성 공간">
+    <meta name="keywords" content="거제공간풀빌라,공간풀빌라,거제풀빌라,거제도풀빌라,거제도풀빌라추천,거제도가족펜션,거제도독채펜션,거제도독채풀빌라,거제숙소,거제여행">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/common.css" as="style">
+    <link rel="preload" href="styles/directions.css" as="style">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/directions.css">
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만 - 오시는길" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만 - 오시는길" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+
+    <section class="page-hero-section animate-hero">
+        <!-- CUSTOM FIELD : 메인 소개 섹션 이미지 매핑 1장 -->
+        <div class="hero-background">
+            <img data-main-hero-img>
+        </div>
+        <!-- 페이지 제목 하드코딩 fixed -->
+        <div class="page-title">
+            <span class="property-name-kr" data-main-property-name-kr></span>
+            <h1 class="typing-text" data-text="Location" style="--text-length: 8;">Location</h1>
+        </div>
+        <!-- Scroll Down Icon -->
+        <div class="scroll-down-icon" onclick="scrollToContent()">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </section>
+
+    <main class="directions-content scroll-target">
+        <div class="main-container">
+            <div class="logo-line-container animate-element">
+                <!-- 숙소 영문명 매핑 fixed -->
+                <span class="logo-text-line" data-main-property-name-en></span>
+                <div class="horizontal-line"></div>
+            </div>
+
+            <!-- CUSTOM FIELD : 메인 소개 섹션 타이틀 매핑 -->
+            <div class="hero-content animate-element">
+                <h2 class="hero-title" data-directions-title></h2>
+            </div>
+
+            <!-- 지도 섹션 -->
+            <section class="map-section animate-element">
+                <div class="map-container">
+                    <div id="kakao-map"></div>
+                </div>
+            </section>
+
+            <div class="location-details animate-element">
+                <div class="location-address-wrapper">
+                    <svg class="location-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="currentColor"/>
+                        <circle cx="12" cy="9" r="2.5" fill="white"/>
+                    </svg>
+                    <!-- 숙소 주소 매핑 -->
+                    <p class="location-address" data-directions-address></p>
+                </div>
+            </div>
+
+            <!-- CUSTOM FIELD : 안내사항 섹션 매핑, 없으면 display none -->
+            <div class="location-note-section animate-element" data-directions-notes></div>
+        </div>
+        <!-- 숙소 외경이미지 1번째 fixed -->
+        <section class="full-banner animate-element" data-main-banner>
+            <div class="closing-property-name" data-closing-property-name></div>
+        </section>
+    </main>
+
+    <!-- Kakao Map SDK -->
+    <script type="text/javascript" src="js/kakao-maps-sdk.js"></script>
+
+    <!-- Include ImageWithFallback script -->
+    <script src="js/image-with-fallback.js"></script>
+
+    <!-- Common JavaScript -->
+    <script src="js/common.js"></script>
+
+    <!-- Image Helpers -->
+    <script src="js/image-helpers.js"></script>
+
+    <!-- Base Data Mapper -->
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+
+    <!-- Directions Page Mapper -->
+    <script src="js/data-mapper/pages/directions-mapper.js"></script>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="js/preview-handler.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="js/header-footer-loader.js"></script>
+
+    <!-- Scroll Animations -->
+    <script src="js/common/scroll-animations.js"></script>
+
+    <!-- Data Mapper (중복 제거됨) -->
+
+    <!-- Page-specific script -->
+    <script src="js/pages/directions.js"></script>
+
+    <!-- Initialize Data Mapper -->
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const directionsMapper = new DirectionsMapper();
+            await directionsMapper.initialize();
+        });
+    </script>
+
+    <script>
+        // 타이핑 애니메이션 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            // 타이핑 애니메이션 완료 후 처리
+            const typingText = document.querySelector('.typing-text');
+            if (typingText) {
+                setTimeout(() => {
+                    typingText.classList.add('typed');
+                }, 3200); // 1.2s delay + 2s animation
+            }
+        });
+    </script>
+
+</body>
+</html>

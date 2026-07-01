@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="거제의 자연을 담은 감성 공간">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/common.css" as="style">
+    <link rel="preload" href="styles/nearby-attractions.css" as="style">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/nearby-attractions.css">
+    <link rel="stylesheet" href="styles/theme.css">
+
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="page-hero-section">
+        <div class="hero-background">
+            <!-- nearbyAttractions.hero.images[0]매핑 -->
+            <img data-nearby-hero-image>
+        </div>
+        <div class="page-title">
+            <span class="property-name-kr" data-property-name></span>
+            <!-- NEARBY ATTRACTIONS 하드코딩 fixed -->
+            <h1 class="typing-text" data-text="NEARBY ATTRACTIONS" style="--text-length: 18;">NEARBY ATTRACTIONS</h1>
+        </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <main class="attractions-page">
+        <div class="attractions-intro-section">
+            <div class="attractions-intro-content animate-element">
+                <!-- nearbyAttractions.hero.title 매핑 -->
+                <h2 class="attractions-title" data-nearby-attractions-about-title></h2>
+                <!-- nearbyAttractions.hero.description 매핑 -->
+                <p class="attractions-description" data-nearby-attractions-about-description></p>
+            </div>
+        </div>
+
+        <!-- Attractions About Section -->
+        <section class="attractions-slider-section">
+            <div class="attractions-slider" data-attractions-slider></div>
+        </section>
+    </main>
+
+    <!-- Closing Section - Full Banner -->
+    <section class="full-banner" data-nearby-closing>
+        <img src="" alt="마무리 섹션 이미지" data-nearby-closing-image>
+        <div class="closing-property-name" data-closing-property-name-en></div>
+    </section>
+
+    <!-- Include ImageWithFallback script -->
+    <script src="js/image-with-fallback.js"></script>
+
+    <!-- Image Helpers -->
+    <script src="js/image-helpers.js"></script>
+
+    <!-- Base Data Mapper (must load before preview-handler) -->
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="js/preview-handler.js"></script>
+
+    <!-- Nearby Attractions Mapper -->
+    <script src="js/data-mapper/pages/nearby-attractions-mapper.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="js/header-footer-loader.js"></script>
+
+    <!-- Page-specific script -->
+    <script src="js/pages/nearby-attractions.js"></script>
+
+</body>
+</html>

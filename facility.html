@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거제 스테이낭만 - 시설안내</title>
+    <meta name="description" content="거제의 자연을 담은 감성 공간">
+    <meta name="keywords" content="거제공간풀빌라,공간풀빌라,거제풀빌라,거제도풀빌라,거제도풀빌라추천,거제도가족펜션,거제도독채펜션,거제도독채풀빌라,거제숙소,거제여행">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles/common.css" as="style">
+    <link rel="preload" href="styles/facility.css" as="style">
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="styles/theme.css">
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/facility.css">
+
+
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만 - 시설안내" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만 - 시설안내" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+    <main class="main-content">
+        <div class="content-wrap">
+            <!-- Facility Hero Section with Slider -->
+            <section class="facility-hero-section fade-in-hero">
+                <div class="facility-hero-slider-container">
+                    <div class="slider" data-facility-hero-slider>
+                        <!-- 동적으로 슬라이드가 생성됩니다 -->
+                    </div>
+
+                    <!-- Facility Hero Content Overlay -->
+                    <div class="facility-hero-content-overlay">
+                        <div class="facility-hero-content-container">
+                            <div class="facility-hero-text-content">
+                                <!-- 숙소 영문명 매핑 -->
+                                <h2 class="facility-hero-property-name" data-hero-property-name-en></h2>
+                                <!-- 시설 타이틀 매핑 -->
+                                <h1 class="facility-hero-title" data-facility-title></h1>
+                            </div>
+
+                            <!-- Slider Navigation -->
+                            <div class="slider-nav">
+                                <div class="slider-buttons">
+                                    <button class="slider-btn prev">‹</button>
+                                    <button class="slider-btn next">›</button>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="progress-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        <section class="facility-top-intro-section">
+            <div class="facility-intro-container">
+                <div class="facility-intro-image wipe-reveal">
+                    <img data-facility-main-image>
+                </div>
+                <div class="facility-intro-text animate-on-scroll slide-up">
+                    <div class="facility-intro-top">
+                      <!-- 하드코딩 Fixed -->
+                        <div class="facility-intro-subtitle">Special Offer</div>
+                        <!-- 시설 타이틀 매핑 -->
+                        <h1 class="facility-intro-title" data-facility-intro-title></h1>
+                        <!-- 시설 설명 매핑 / custom field 메인 소개 문구 매핑 -->
+                        <p class="facility-intro-desc" data-facility-description></p>
+                    </div>
+                    <div class="facility-intro-bottom">
+                        <!-- 시설 이용규칙 매핑 -->
+                        <p class="facility-intro-usage" data-facility-usage-guide></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Usage Guide Section (내용 없을 시 display: none) -->
+        <section class="facility-usage-section" data-usage-section>
+            <div class="facility-usage-container">
+                <div class="usage-boxes">
+                    <!-- 주요특징 매핑 -->
+                    <div class="usage-box animate-on-scroll slide-up" data-features-box>
+                        <h3 class="usage-box-title">주요특징</h3>
+                        <div class="usage-box-content" data-facility-features></div>
+                    </div>
+                    <!-- 추가정보 매핑 -->
+                    <div class="usage-box animate-on-scroll slide-up" data-additional-box>
+                        <h3 class="usage-box-title">추가정보</h3>
+                        <div class="usage-box-content" data-facility-additional-info></div>
+                    </div>
+                    <!-- 이용혜택 매핑 -->
+                    <div class="usage-box animate-on-scroll slide-up" data-benefits-box>
+                        <h3 class="usage-box-title">이용혜택</h3>
+                        <div class="usage-box-content" data-facility-benefits></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="facility-special-section">
+            <div class="facility-special-container">
+                <div class="facility-special-left animate-on-scroll slide-right">
+                  <!-- 하드코딩 fixed -->
+                    <h2 class="facility-special-title">Special</h2>
+                    <!-- 시설 이미지 전체 매핑, 슬라이딩 -->
+                    <div class="facility-special-image-left" data-wipe-slider="left">
+                        <img data-facility-left-image class="active">
+                    </div>
+                </div>
+                <div class="facility-special-right animate-on-scroll slide-left">
+                    <div class="facility-special-image-right" data-wipe-slider="right">
+                        <img data-facility-right-image class="active">
+                    </div>
+                    <div class="facility-special-text">
+                      <!-- 숙소 영문명 매핑 fixed -->
+                        <h3 class="facility-special-subtitle" data-property-name-en></h3>
+                        <!-- 시설 설명 매핑 /custom field 시설 설명 문구 매핑 -->
+                        <p class="facility-special-description" data-facility-description-2>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+        </div>
+    </main>
+
+    <!-- Include ImageWithFallback script -->
+    <script src="js/image-with-fallback.js"></script>
+
+
+    <!-- Image Helpers -->
+    <script src="js/image-helpers.js"></script>
+
+    <!-- Base Data Mapper -->
+    <script src="js/data-mapper/core/base-mapper.js"></script>
+
+    <!-- Facility Page Mapper -->
+    <script src="js/data-mapper/pages/facility-mapper.js"></script>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="js/preview-handler.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="js/header-footer-loader.js"></script>
+
+    <!-- Scroll Animations -->
+    <script src="js/common/scroll-animations.js"></script>
+
+    <!-- Page-specific script -->
+    <script src="js/pages/facility.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+/* ===================================
+   Nearby Attractions Page Styles
+   =================================== */
+
+/* Attractions Page Container */
+.attractions-page {
+    position: relative;
+    background: linear-gradient(to bottom, var(--color-primary, #e6f3ff) 0%, var(--color-secondary, #658399) 100%);
+}
+
+/* Attractions Intro Section */
+.attractions-intro-section {
+    padding: 80px 20px 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.attractions-intro-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Attractions Title */
+.attractions-title {
+    font-family: var(--font-ko-main, 'Arial', sans-serif);
+    font-size: 2.5rem;
+    margin: 0 0 20px 0;
+    color: var(--color-secondary, #658399);
+    font-weight: 700;
+}
+
+/* Attractions Description */
+.attractions-description {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Animate Element Styles */
+.animate-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+}
+
+.animate-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Attractions Slider Section */
+.attractions-slider-section {
+    padding: 60px 20px 200px;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Attractions Slider Container */
+.attractions-slider {
+    position: relative;
+    overflow: visible;
+    height: auto;
+}
+
+/* Attraction Slides */
+.attractions-slide {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    text-align: left;
+}
+
+.attractions-slide.active {
+    display: flex;
+    opacity: 1;
+}
+
+/* Title and Buttons Row */
+.title-buttons-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    opacity: 0;
+}
+
+.attractions-slide.active .title-buttons-row {
+    animation: fadeIn 0.3s ease-in-out forwards;
+    opacity: 1;
+}
+
+/* Slide Navigation Buttons */
+.slide-nav-buttons {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+/* Attractions Image Wrapper */
+.attractions-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+}
+
+.attractions-slide.active .attractions-image-wrapper {
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Attraction Images Grid - 2 column layout */
+.attraction-images-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 20px;
+    flex: 1;
+    width: 100%;
+}
+
+/* Attraction Grid Item */
+.attraction-grid-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.attraction-grid-item:nth-child(1) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+}
+
+.attraction-grid-item:nth-child(2) {
+    width: 100%;
+    aspect-ratio: 13 / 9;
+}
+
+/* Attraction Image */
+.attraction-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Attraction Item Title */
+.attraction-item-title {
+    font-family: var(--font-en-main, 'Arial', sans-serif);
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-secondary, #658399);
+    margin: 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.attraction-item-title::before {
+    content: attr(data-number);
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--color-secondary, #658399);
+    display: block;
+    white-space: nowrap;
+}
+
+/* Attraction Item Description */
+.attraction-item-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin: 0;
+    padding-bottom: 16px;
+}
+
+/* Navigation Buttons */
+.attractions-prev,
+.attractions-next {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(101, 131, 153, 0.2);
+    color: var(--color-secondary, #658399);
+    font-size: 24px;
+    border: 1px solid var(--color-secondary, #658399);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.attractions-prev:hover,
+.attractions-next:hover {
+    background: rgba(101, 131, 153, 0.3);
+    border-color: var(--color-secondary, #658399);
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .attractions-intro-section {
+        padding: 60px 20px 50px;
+    }
+
+    .attraction-item-title {
+        font-size: 28px;
+        gap: 15px;
+    }
+
+    .attraction-images-grid {
+        grid-template-columns: 1fr 1.6fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .attractions-slider-section {
+        padding: 60px 0 150px;
+    }
+
+    .attractions-slider {
+        height: auto;
+    }
+
+    .attractions-slide {
+        display: none !important;
+        padding: 0 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .attractions-slide.active {
+        display: flex !important;
+    }
+
+    .title-buttons-row {
+        display: flex !important;
+        align-items: center;
+        gap: 15px;
+        margin: 0 auto;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .attraction-item-title {
+        font-size: 24px;
+        gap: 10px;
+        margin: 0;
+        flex: 1;
+        justify-content: flex-start;
+    }
+
+    .attraction-item-title::before {
+        font-size: 28px;
+    }
+
+    .attractions-image-wrapper .attractions-prev,
+    .attractions-image-wrapper .attractions-next {
+        display: none;
+    }
+
+    .attractions-image-wrapper {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .attraction-images-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .attraction-grid-item {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .attraction-grid-item:nth-child(1),
+    .attraction-grid-item:nth-child(2) {
+        width: 100%;
+    }
+
+    .attraction-grid-item:nth-child(2) {
+        display: none;
+    }
+
+    .attraction-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .attraction-item-description {
+        font-size: 14px;
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+/* Large Screen Responsive */
+@media (min-width: 1400px) {
+    .attractions-slider-section {
+        max-width: 1200px;
+    }
+
+    .attractions-intro-section {
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .attractions-slider-section {
+        max-width: 1350px;
+    }
+
+    .attractions-intro-section {
+        max-width: 1350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .attractions-intro-section {
+        padding: 40px 15px 30px;
+    }
+
+    .attractions-description {
+        font-size: 0.95rem;
+    }
+
+    .attraction-item-title {
+        font-size: 20px;
+    }
+
+    .attraction-item-description {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}

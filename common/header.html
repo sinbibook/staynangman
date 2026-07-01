@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>거제 스테이낭만</title>
+    <link rel="stylesheet" href="../styles/header.css">
+  <!-- Open Graph Meta Tags for Social Media -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="거제 스테이낭만" />
+  <meta property="og:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta property="og:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+  <meta property="og:url" content="https://staynangman.kr" />
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="거제 스테이낭만" />
+  <meta name="twitter:description" content="단독 독채로 완성된 공간에서 바다와 하늘이 맞닿은 풍경이 있는 거제 공간 풀빌라 입니다." />
+  <meta name="twitter:image" content="https://bookingplay-media.s3.amazonaws.com/item_images/2026/06/30/OacS8VLBqWsG.jpg" />
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="top-header">
+        <div class="top-header-content">
+            <div class="logo-container" onclick="navigateTo('home')">
+                <!-- <img data-logo src="images/mutenlol_logo.png" alt="로고" class="logo-image"> -->
+                <span class="logo-text" data-logo-text></span>
+            </div>
+            <div class="header-buttons">
+                <!-- Reservation Button -->
+                <div class="circular-reservation-btn desktop-only" data-booking-engine>
+                    <svg class="rotating-text" viewBox="0 0 100 100">
+                        <defs>
+                            <path id="circle-path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"></path>
+                        </defs>
+                        <text>
+                            <textPath href="#circle-path" startOffset="0%">
+                                RESERVATION • RESERVATION • RESERVATION •
+                            </textPath>
+                        </text>
+                    </svg>
+                    <div class="btn-center">
+                        <span style="font-weight: 700; font-size: 16px;">예약</span>
+                    </div>
+                </div>
+
+                <!-- YBS Button -->
+                <div class="circular-ybs-btn desktop-only" data-ybs-booking>
+                    <svg class="rotating-text" viewBox="0 0 100 100">
+                        <defs>
+                            <path id="ybs-circle-path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"></path>
+                        </defs>
+                        <text>
+                            <textPath href="#ybs-circle-path" startOffset="0%">
+                                YBS • YBS • YBS • YBS • YBS •
+                            </textPath>
+                        </text>
+                    </svg>
+                    <div class="btn-center">
+                        <span style="font-weight: 700; font-size: 14px;">YBS</span>
+                    </div>
+                </div>
+
+                <!-- Menu Button -->
+                <div class="hamburger-button" id="hamburger-button" onclick="toggleMenu()">
+                    <div class="toggle-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="menu-label">MENU</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Header Opened -->
+    <div class="header-opened" id="header-opened">
+        <div class="header-opened-content">
+            <!-- Menu content -->
+            <div class="dropdown-menu-grid">
+                <!-- About Section -->
+                <div class="dropdown-section">
+                    <h3 class="dropdown-section-title expandable active" onclick="toggleMobileAccordion(this)">About</h3>
+                    <ul class="dropdown-section-list accordion-content active">
+                        <li><a onclick="navigateTo('main')">프롤로그</a></li>
+                        <li><a onclick="navigateTo('directions')">오시는길</a></li>
+                    </ul>
+                </div>
+
+                <!-- Spaces Section -->
+                <div class="dropdown-section">
+                    <h3 class="dropdown-section-title expandable active" onclick="toggleMobileAccordion(this)">Rooms</h3>
+                    <ul class="dropdown-section-list accordion-content active" data-rooms-list>
+                        <!-- 동적으로 생성됩니다 -->
+                    </ul>
+                </div>
+
+                <!-- Specials Section -->
+                <div class="dropdown-section">
+                    <h3 class="dropdown-section-title expandable active" onclick="toggleMobileAccordion(this)">Specials</h3>
+                    <ul class="dropdown-section-list accordion-content active" data-facilities-list>
+                        <!-- 동적으로 생성됩니다 -->
+                    </ul>
+                </div>
+
+                <!-- Reservation Section -->
+                <div class="dropdown-section">
+                    <h3 class="dropdown-section-title expandable active" onclick="toggleMobileAccordion(this)">Reservation</h3>
+                    <ul class="dropdown-section-list accordion-content active">
+                        <li><a onclick="navigateTo('reservation')">예약안내</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Reservation Button -->
+            <div class="mobile-menu-reservation">
+                <button class="reservation-btn" data-booking-engine onclick="toggleHeaderMenu(); navigateTo('reservation')">
+                    RESERVATION
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Opened Overlay for all pages -->
+    <div class="header-opened-overlay" id="header-opened-overlay"></div>
+
+    <!-- Mobile Fixed Buttons Container -->
+    <div class="mobile-fixed-buttons">
+        <!-- Mobile Reservation Button -->
+        <div class="mobile-circular-reservation-btn" data-booking-engine>
+            <svg class="rotating-text" viewBox="0 0 100 100">
+                <defs>
+                    <path id="mobile-res-path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"></path>
+                </defs>
+                <text>
+                    <textPath href="#mobile-res-path" startOffset="0%">
+                        RESERVATION • RESERVATION •
+                    </textPath>
+                </text>
+            </svg>
+            <div class="btn-center">
+                <span style="font-weight: 700; font-size: 14px;">예약</span>
+            </div>
+        </div>
+
+        <!-- Mobile YBS Button -->
+        <div class="mobile-circular-ybs-btn" data-ybs-booking>
+            <svg class="rotating-text" viewBox="0 0 100 100">
+                <defs>
+                    <path id="mobile-ybs-path" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"></path>
+                </defs>
+                <text>
+                    <textPath href="#mobile-ybs-path" startOffset="0%">
+                        YBS • YBS • YBS • YBS •
+                    </textPath>
+                </text>
+            </svg>
+            <div class="btn-center">
+                <span style="font-weight: 700; font-size: 12px;">YBS</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Handler for Admin Integration -->
+    <script src="../js/preview-handler.js"></script>
+
+    <!-- Base Data Mapper (required for HeaderFooterMapper) -->
+    <script src="../js/data-mapper/base-data-mapper.js"></script>
+
+    <!-- Header Footer Mapper -->
+    <script src="../js/data-mapper/pages/header-footer-mapper.js"></script>
+
+    <!-- Header and Footer Loader -->
+    <script src="../js/header-footer-loader.js"></script>
+
+    <!-- Header script -->
+    <script src="../js/common/header.js"></script>
+
+    <!-- Additional script for immediate menu functionality and initialization -->
+    <script>
+        // Initialize header mapping when loaded directly
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this is being loaded as a standalone page
+            if (window.location.pathname.includes('/common/header.html')) {
+                // Wait for mapper to be available
+                const initializeHeader = async function() {
+                    if (window.HeaderFooterMapper) {
+                        console.log('Initializing header mapper...');
+                        const mapper = new window.HeaderFooterMapper();
+                        await mapper.initialize();
+                        await mapper.mapHeader();
+                        console.log('Header mapping complete');
+                    } else {
+                        // Retry if mapper not yet loaded
+                        setTimeout(initializeHeader, 100);
+                    }
+                };
+
+                // Start initialization after scripts are loaded
+                setTimeout(initializeHeader, 500);
+            }
+        });
+
+        function testMenuToggle() {
+            console.log('Test menu toggle called!');
+            const headerOpened = document.getElementById('header-opened');
+            const hamburgerButton = document.getElementById('hamburger-button');
+
+            if (headerOpened) {
+                console.log('Header opened element found');
+                const isExpanded = headerOpened.classList.contains('expanded');
+                console.log('Current expanded state:', isExpanded);
+
+                if (isExpanded) {
+                    headerOpened.classList.remove('expanded');
+                    hamburgerButton.classList.remove('active');
+                    console.log('Menu closed');
+                } else {
+                    headerOpened.classList.add('expanded');
+                    hamburgerButton.classList.add('active');
+                    console.log('Menu opened');
+                }
+            } else {
+                console.log('Header opened element NOT found');
+            }
+        }
+    </script>
+</body>
+</html>
