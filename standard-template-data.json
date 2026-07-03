@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.25.0",
-    "generatedAt": "2026-07-03T01:50:19.841062050Z",
+    "version": "1.26.0",
+    "generatedAt": "2026-07-03T02:02:55.578921868Z",
     "templateType": "full_banner_wipe",
     "propertyId": "65874f96-97a7-46b7-82f3-6de0145cf7b3",
     "homepageId": "f1943f7e-912c-42ea-85c7-b0fb7408259e"
@@ -275,9 +275,9 @@
       },
       {
         "id": "ecbafc21-4570-40e6-9639-7d9d80a3fb95",
-        "name": "낚시&항구",
-        "description": "기다림의 즐거움",
-        "usageGuide": "잔잔한 물가에서 낚시를 즐기며\n여유로운 여행의 순간을 경험해보세요.",
+        "name": "주변 즐길거리",
+        "description": "여유로운 여행의 순간을 경험해보세요.",
+        "usageGuide": "1. 계도항 어촌체험 휴양마을 좌대 낚시터 (차량 2분)\n2. 사곡해수욕장 (차량 15분)\n3. 구조라해수욕장 & 윤돌섬 (차량 35분)\n4. 해금강 유람선\n5. 바람의언덕 (차량 50분)\n6. 근포땅굴 (차량 50분)\n7. 거제식물원 (차량 20분)",
         "displayOrder": 6,
         "images": [
           {
@@ -315,73 +315,40 @@
         ]
       },
       {
-        "id": "1dacd70a-d52c-44b4-b908-845c41683074",
-        "name": "부대시설",
+        "id": "dbe47a50-8d81-4a79-854f-9c4a16187fa9",
+        "name": "추가옵션",
         "description": "숯불 위에서 천천히 익어가는 풍미와 함께,\n여행의 하루를 더욱 특별하게 즐겨보세요.",
-        "usageGuide": "[선셋 이로리야끼] \n- 금태세트 1인 60,000원 \n- 제공품목:생선3종(금태포함),통삼겹(100g),새우,소시지&파꼬치\n\n- 생선2종세트 1인 40,000원 \n- 제공품목: 생선2종,새우,닭꼬치,소시지&파꼬치\n※ 식사 대용이 아닌 안주정도의 양입니다. \n※ 생선은 계절별로 바뀔 수 있습니다. (볼락,조기,열기,우럭 등) \n※ 하루 최대 4인 한정, 현장 구매 불가, 최소 숙박일 2일 전 예약 가능 \n※ 이용 시간은 오후 7시 30분~9시까지 입니다.",
+        "usageGuide": "[선셋 이로리야끼] \n- 금태세트 1인 60,000원 \n- 제공품목:생선2종(금태포함),통삼겹(100g),새우,소시지&파꼬치\n\n- 생선2종세트 1인 40,000원 \n- 제공품목: 생선2종,새우,닭꼬치,소시지&파꼬치\n※ 식사 대용이 아닌 안주정도의 양입니다. \n※ 생선은 계절별로 바뀔 수 있습니다. (볼락,조기,열기,우럭 등) \n※ 하루 최대 4인 한정, 현장 구매 불가, 최소 숙박일 2일 전 예약 가능 \n※ 이용 시간은 오후 7시 30분~9시까지 입니다.",
         "displayOrder": 7,
         "images": [
           {
-            "id": "047465d1-416d-4d2f-a9fd-70d4fa768b7a",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/1dacd70a-d52c-44b4-b908-845c41683074/main/1782887198775-1vkklpzsiz.jpg",
+            "id": "a6e31886-e909-47fa-bcbc-afbe2525ca58",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/dbe47a50-8d81-4a79-854f-9c4a16187fa9/main/1783044061385-b748q6ye0r.jpg",
             "sortOrder": 0,
             "description": "",
             "isSelected": true,
             "blockId": null
           },
           {
-            "id": "eb6887e4-a420-4ee8-b203-4b539df34994",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/1dacd70a-d52c-44b4-b908-845c41683074/main/1782887198814-xcs1d5we4p.jpg",
+            "id": "a4e2bff3-8be0-43c6-89a3-d293cc0cf67d",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/dbe47a50-8d81-4a79-854f-9c4a16187fa9/main/1783044061387-io9r9i4795.jpg",
             "sortOrder": 1,
             "description": "",
             "isSelected": true,
             "blockId": null
           },
           {
-            "id": "016949c7-99a8-48dd-8ecc-7b3eccfc04bf",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/1dacd70a-d52c-44b4-b908-845c41683074/main/1782887198800-23w4quenny.jpg",
+            "id": "d9ce02cc-10f0-427b-a862-d43a6087af6b",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/dbe47a50-8d81-4a79-854f-9c4a16187fa9/main/1783044061391-w8zm7vpbye.jpg",
             "sortOrder": 2,
             "description": "",
             "isSelected": true,
             "blockId": null
           },
           {
-            "id": "2edf0d1e-ad68-483f-b604-16a7aa8c565a",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/1dacd70a-d52c-44b4-b908-845c41683074/main/1782887198810-lgmb1hx8gj.jpg",
+            "id": "cd6a91d4-3d93-4856-940f-a52dab6bf2d6",
+            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/dbe47a50-8d81-4a79-854f-9c4a16187fa9/main/1783044061390-pmhlmlrw5y.jpg",
             "sortOrder": 3,
-            "description": "",
-            "isSelected": true,
-            "blockId": null
-          }
-        ]
-      },
-      {
-        "id": "af695ba8-ef11-4c01-877f-8c30b9a8d3d3",
-        "name": "편의 및 주변 시설",
-        "description": "머무는 모든 순간이 편안하게 이어질 수 있도록\n세심한 준비로 공간의 완성도를 더했습니다.\n부담 없이 쉬어갈 수 있는 시간을 제공합니다.",
-        "usageGuide": "- Wi-Fi 이용 가능\n\n[주변관광지]\n- 거제식물원 \n- 거제포로수용소유적공원",
-        "displayOrder": 8,
-        "images": [
-          {
-            "id": "d0128c9a-c115-4bb5-b559-c6e990fb5d28",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/af695ba8-ef11-4c01-877f-8c30b9a8d3d3/main/1782887438447-0jab0040cl.jpg",
-            "sortOrder": 0,
-            "description": "",
-            "isSelected": true,
-            "blockId": null
-          },
-          {
-            "id": "ddef53ec-9822-4d42-9357-844d74c37dbb",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/af695ba8-ef11-4c01-877f-8c30b9a8d3d3/main/1782887438474-yt0omkjgfi.jpg",
-            "sortOrder": 1,
-            "description": "",
-            "isSelected": true,
-            "blockId": null
-          },
-          {
-            "id": "57f74914-deca-4b84-807f-1d02c58c404c",
-            "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/facility/af695ba8-ef11-4c01-877f-8c30b9a8d3d3/main/1782887438471-807db4np0e.jpg",
-            "sortOrder": 2,
             "description": "",
             "isSelected": true,
             "blockId": null
