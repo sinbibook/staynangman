@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.19.0",
-    "generatedAt": "2026-07-03T01:28:00.995697839Z",
+    "version": "1.20.0",
+    "generatedAt": "2026-07-03T01:30:57.445362040Z",
     "templateType": "full_banner_wipe",
     "propertyId": "65874f96-97a7-46b7-82f3-6de0145cf7b3",
     "homepageId": "f1943f7e-912c-42ea-85c7-b0fb7408259e"
@@ -1557,7 +1557,7 @@
                   }
                 ],
                 "videos": [ ],
-                "description": "실외 개별수영장 : 12~2월 사용불가\n실내 개별수영장 : 사계절 이용가능"
+                "description": ""
               },
               "gallery": {
                 "title": "Preview",
