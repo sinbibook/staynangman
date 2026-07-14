@@ -54,6 +54,13 @@ class NearbyAttractionsMapper extends BaseDataMapper {
         if (pageTitle) {
             pageTitle.textContent = `주변 명소 - ${propertyNameEn}`;
         }
+
+        // 네이버/구글 사이트 인증 meta 태그 주입 (전 페이지 공통)
+        const seo = this.safeGet(this.data, 'homepage.seo');
+        if (seo) {
+            this.upsertMetaByName('naver-site-verification', seo.naverSiteVerification);
+            this.upsertMetaByName('google-site-verification', seo.googleSiteVerification);
+        }
     }
 
     /**
