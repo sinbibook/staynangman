@@ -86,18 +86,27 @@ class ReservationMapper extends BaseDataMapper {
         const reservationData = this.safeGet(this.data, 'homepage.customFields.pages.reservation.sections.0');
 
         // CUSTOM FIELD 제목 매핑 (about.title)
+        // 내용 없으면 해당 영역 숨김 (둘 다 없으면 래퍼까지 숨김)
+        const title = this.sanitizeText(reservationData?.about?.title);
         const reservationTitle = this.safeSelect('[data-reservation-title]');
         if (reservationTitle) {
-            reservationTitle.textContent = this.sanitizeText(reservationData?.about?.title, '예약정보 타이틀');
+            reservationTitle.textContent = title;
+            const titleSection = reservationTitle.closest('.reservation-title-section') || reservationTitle;
+            titleSection.style.display = title ? '' : 'none';
         }
 
         // CUSTOM FIELD 설명 매핑 (about.description)
+        const description = this.sanitizeText(reservationData?.about?.description);
         const reservationDescription = this.safeSelect('[data-reservation-description]');
         if (reservationDescription) {
-            reservationDescription.innerHTML = this._formatTextWithLineBreaks(
-                reservationData?.about?.description,
-                '예약정보 설명'
-            );
+            reservationDescription.innerHTML = this._formatTextWithLineBreaks(description);
+            const descSection = reservationDescription.closest('.reservation-description-section') || reservationDescription;
+            descSection.style.display = description ? '' : 'none';
+        }
+
+        const contentWrapper = this.safeSelect('.reservation-content-wrapper');
+        if (contentWrapper) {
+            contentWrapper.style.display = (title || description) ? '' : 'none';
         }
     }
 

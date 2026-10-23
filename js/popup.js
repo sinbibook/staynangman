@@ -204,6 +204,7 @@ class PopupManager {
         this.sliderIndex = 0;
 
         this.container.innerHTML = this.render(popup);
+        this.bindFitBox();
 
         // body 스크롤 막기
         document.body.classList.add('popup-open');
@@ -257,10 +258,11 @@ class PopupManager {
         const imageSection = isSlider
             ? this.renderSlider(popup, hasLink, hasTitle, hasDescription, selectedImages)
             : this.renderSingleImage(popup, hasLink, hasTitle, hasDescription);
+        const boxWidth = this.getBoxWidth(popup);
 
         return `
             <div class="popup-overlay" role="dialog" aria-modal="true"${hasTitle ? ` aria-labelledby="popup-title-${popup.id}"` : ''}>
-                <div class="popup-content${isSlider ? ' popup-content--slider' : ''}">
+                <div class="popup-content${isSlider ? ' popup-content--slider' : ''}" data-box-width="${boxWidth}" style="width: ${boxWidth}px; max-width: min(90vw, ${boxWidth}px)">
                     <button class="popup-close" data-action="close" aria-label="팝업 닫기">&times;</button>
                     ${imageSection}
                     <div class="popup-footer">
@@ -279,7 +281,8 @@ class PopupManager {
         const imageUrl = this.getSelectedImage(popup);
 
         const imageContent = `
-            <div class="popup-image" style="background-image: url('${this.escapeHtml(imageUrl)}')">
+            <div class="popup-image-wrap">
+                <img class="popup-image" src="${this.escapeHtml(imageUrl)}" alt="${this.escapeHtml(popup.title || '팝업 이미지')}">
                 ${hasTitle || hasDescription ? `
                     <div class="popup-text-content">
                         ${hasTitle ? `<h3 id="popup-title-${popup.id}" class="popup-title">${this.escapeHtml(popup.title)}</h3>` : ''}
@@ -302,7 +305,8 @@ class PopupManager {
         // 슬라이드 아이템들
         const slides = images.map((img, index) => `
             <div class="popup-slide${index === 0 ? ' active' : ''}" data-slide-index="${index}">
-                <div class="popup-image" style="background-image: url('${this.escapeHtml(img.url)}')">
+                <div class="popup-image-wrap">
+                    <img class="popup-image" src="${this.escapeHtml(img.url)}" alt="${this.escapeHtml(popup.title || '팝업 이미지')}">
                     ${hasTitle || hasDescription ? `
                         <div class="popup-text-content">
                             ${hasTitle ? `<h3${index === 0 ? ` id="popup-title-${popup.id}"` : ''} class="popup-title">${this.escapeHtml(popup.title)}</h3>` : ''}
@@ -336,6 +340,59 @@ class PopupManager {
         return hasLink
             ? `<a href="${this.escapeHtml(popup.link)}" target="_blank" rel="noopener noreferrer" class="popup-image-link">${sliderContent}</a>`
             : sliderContent;
+    }
+
+    /**
+     * 팝업 폭 (백오피스에서 고른 popup.width, 없으면 기본 폭)
+     */
+    getBoxWidth(popup) {
+        const width = Number(popup && popup.width);
+        return width > 0 ? width : PopupManager.DEFAULT_BOX_WIDTH;
+    }
+
+    /**
+     * 팝업 박스 폭 맞추기
+     * - 고른 폭으로 고정하고 이미지는 폭 100% 로 채운다
+     * - 세로가 화면을 넘는 이미지만 비율을 유지한 채 폭을 줄인다 (닫기 버튼이 화면 안에 남도록)
+     * - 슬라이더는 첫 이미지 비율로 높이를 고정한다 (넘길 때 팝업 높이가 바뀌지 않도록)
+     */
+    fitBox() {
+        if (!this.container) return;
+        const box = this.container.querySelector('.popup-content');
+        const img = this.container.querySelector('.popup-image');
+        if (!box || !img || !img.naturalWidth || !img.naturalHeight) return;
+
+        const ratio = img.naturalWidth / img.naturalHeight;
+        const slides = box.querySelector('.popup-slides');
+        if (slides) slides.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+
+        const footer = box.querySelector('.popup-footer');
+        const footerHeight = footer ? footer.offsetHeight : 0;
+        const boxWidth = Number(box.dataset.boxWidth) || PopupManager.DEFAULT_BOX_WIDTH;
+        const maxImageHeight = window.innerHeight * 0.85 - footerHeight;
+
+        let w = Math.min(window.innerWidth * 0.9, boxWidth);
+        if (w / ratio > maxImageHeight) w = maxImageHeight * ratio;
+        box.style.width = Math.round(Math.max(w, 1)) + 'px';
+    }
+
+    /**
+     * 이미지가 로드되면 폭을 맞추고, 창 크기가 바뀌면 다시 맞춘다
+     */
+    bindFitBox() {
+        const img = this.container.querySelector('.popup-image');
+        if (img) {
+            if (img.complete && img.naturalWidth) {
+                this.fitBox();
+            } else {
+                img.addEventListener('load', () => this.fitBox(), { once: true });
+            }
+        }
+        if (this._resizeHandler) {
+            window.removeEventListener('resize', this._resizeHandler);
+        }
+        this._resizeHandler = () => this.fitBox();
+        window.addEventListener('resize', this._resizeHandler);
     }
 
     /**
@@ -562,6 +619,10 @@ class PopupManager {
             document.removeEventListener('keydown', this._escHandler);
             this._escHandler = null;
         }
+        if (this._resizeHandler) {
+            window.removeEventListener('resize', this._resizeHandler);
+            this._resizeHandler = null;
+        }
         this.stopAutoPlay();
         this._slides = null;
         this._dots = null;
@@ -607,6 +668,9 @@ class PopupManager {
 
 // 전역 인스턴스 생성
 window.PopupManager = PopupManager;
+
+// 팝업 폭을 고르지 않은 팝업의 기본 폭 (styles/popup.css .popup-content width 와 동일하게 유지)
+PopupManager.DEFAULT_BOX_WIDTH = 350;
 
 // DOM 로드 완료 시 초기화
 if (document.readyState === 'loading') {

@@ -376,7 +376,7 @@
 }
 
 .room-description {
-    
+
     font-size: 16px;
     line-height: 1.8;
     color: #666;
@@ -384,6 +384,8 @@
     margin: 0 auto;
     text-align: center;
     white-space: pre-line;
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 /* ========================================
@@ -440,13 +442,15 @@
 }
 
 .room-description {
-    
+
     font-size: 18px;
     line-height: 1.8;
     color: #666;
     max-width: 800px;
     margin: 0 auto;
     white-space: pre-line;
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 /* ========================================
@@ -668,12 +672,21 @@
     border-radius: 15px;
     font-size: 14px;
     color: #666;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.amenity-icon-item span {
+    min-width: 0;
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 .amenity-icon {
     width: 20px;
     height: 20px;
     color: var(--color-secondary, #658399);
+    flex-shrink: 0;
 }
 
 /* Room Usage Guide */
