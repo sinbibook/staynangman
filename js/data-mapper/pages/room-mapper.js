@@ -510,7 +510,7 @@ class RoomMapper extends BaseDataMapper {
         // Hero 섹션의 객실 설명 매핑 (시스템 데이터)
         const heroDescription = document.querySelector('.room-hero-text [data-room-info-description]');
         if (heroDescription) {
-            heroDescription.innerHTML = this._formatTextWithLineBreaks(room.description, `${roomNameText}의 상세 정보입니다.`);
+            heroDescription.innerHTML = this._formatTextWithLineBreaks(this._addSpaceAfterComma(room.description), `${roomNameText}의 상세 정보입니다.`);
             // animate-on-scroll이 있으므로 visible 클래스 추가
             setTimeout(() => {
                 heroDescription.classList.add('visible');
@@ -561,8 +561,17 @@ class RoomMapper extends BaseDataMapper {
         // 시스템 데이터: 객실 설명 매핑
         const roomInfoDescription = this.safeSelect('[data-room-info-description]');
         if (roomInfoDescription) {
-            roomInfoDescription.innerHTML = this._formatTextWithLineBreaks(room.description, `${roomNameText}의 상세 정보입니다.`);
+            roomInfoDescription.innerHTML = this._formatTextWithLineBreaks(this._addSpaceAfterComma(room.description), `${roomNameText}의 상세 정보입니다.`);
         }
+    }
+
+    /**
+     * 쉼표 뒤 공백이 없으면 줄바꿈 지점이 생기지 않아 단어 중간이 잘리므로 공백 보정
+     * @private
+     */
+    _addSpaceAfterComma(text) {
+        if (this._isEmptyValue(text)) return text;
+        return text.replace(/,(?!\s)/g, ', ');
     }
 
     /**
@@ -611,11 +620,18 @@ class RoomMapper extends BaseDataMapper {
             roomCheckout.textContent = room.timeSettings?.checkout || '-';
         }
 
-        // 객실 이용규칙/안내사항 (시스템 데이터)
+        // 객실 이용규칙/안내사항 (시스템 데이터) — 내용 없으면 제목 포함 섹션 미노출
         const roomGuide = this.safeSelect('[data-room-guide]');
         if (roomGuide) {
-            const roomInfo = room.roomInfo || '편안한 휴식 공간';
-            roomGuide.innerHTML = this._formatTextWithLineBreaks(roomInfo);
+            const roomInfo = (room.roomInfo || '').trim();
+            const guideSection = roomGuide.closest('.room-usage-guide');
+            if (roomInfo) {
+                roomGuide.innerHTML = this._formatTextWithLineBreaks(roomInfo);
+                if (guideSection) guideSection.style.display = '';
+            } else {
+                roomGuide.innerHTML = '';
+                if (guideSection) guideSection.style.display = 'none';
+            }
         }
     }
 
@@ -635,7 +651,9 @@ class RoomMapper extends BaseDataMapper {
 
             // 간단한 아이콘과 텍스트로 표시
             room.amenities.forEach(amenity => {
-                const amenityName = amenity.name?.ko || amenity.name || amenity;
+                const rawAmenityName = amenity.name?.ko || amenity.name || amenity;
+                // 쉼표 뒤 공백이 없으면 줄바꿈 기준점이 안 생겨 단어 중간이 잘리므로 공백 보정
+                const amenityName = String(rawAmenityName).replace(/,\s*/g, ', ');
                 const iconItem = document.createElement('div');
                 iconItem.className = 'amenity-icon-item';
 
@@ -779,12 +797,18 @@ class RoomMapper extends BaseDataMapper {
         const room = this.getCurrentRoom();
         if (!room) return;
 
-        // 갤러리 제목 매핑 (CUSTOM FIELD)
+        // 갤러리 제목 매핑 (CUSTOM FIELD) — 내용 없으면 타이틀 미노출
         const galleryTitle = this.safeSelect('[data-room-gallery-title]');
         if (galleryTitle) {
             const roomPageData = this.getCurrentRoomPageData();
-            const galleryTitleText = roomPageData?.data?.sections?.[0]?.gallery?.title;
-            galleryTitle.innerHTML = this._formatTextWithLineBreaks(galleryTitleText || '객실 갤러리 타이틀');
+            const galleryTitleText = (roomPageData?.data?.sections?.[0]?.gallery?.title || '').trim();
+            if (galleryTitleText) {
+                galleryTitle.innerHTML = this._formatTextWithLineBreaks(galleryTitleText);
+                galleryTitle.style.display = '';
+            } else {
+                galleryTitle.innerHTML = '';
+                galleryTitle.style.display = 'none';
+            }
         }
 
         // exterior 이미지 가져오기 (customFields 우선)

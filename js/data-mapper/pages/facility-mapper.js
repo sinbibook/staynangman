@@ -185,12 +185,17 @@ class FacilityMapper extends BaseDataMapper {
         // 이용안내 매핑
         const usageEl = document.querySelector('.facility-top-intro-section [data-facility-usage-guide]');
         if (usageEl) {
-            if (Array.isArray(mainFacility.usageGuide)) {
-                usageEl.innerHTML = this._formatTextWithLineBreaks(mainFacility.usageGuide.join('\n'));
-            } else if (mainFacility.usageGuide) {
-                usageEl.innerHTML = this._formatTextWithLineBreaks(mainFacility.usageGuide);
+            const usageText = Array.isArray(mainFacility.usageGuide)
+                ? mainFacility.usageGuide.filter(Boolean).join('\n')
+                : (mainFacility.usageGuide || '');
+            // 이용안내 내용 없으면 구분선 포함 하단 영역 숨김
+            const usageWrapper = usageEl.closest('.facility-intro-bottom') || usageEl;
+            if (usageText.trim()) {
+                usageEl.innerHTML = this._formatTextWithLineBreaks(usageText);
+                usageWrapper.style.display = '';
             } else {
-                usageEl.textContent = '이용 안내 정보가 준비중입니다.';
+                usageEl.innerHTML = '';
+                usageWrapper.style.display = 'none';
             }
         }
     }
@@ -214,9 +219,10 @@ class FacilityMapper extends BaseDataMapper {
 
         // 주요특징 매핑
         const featuresContainer = document.querySelector('[data-facility-features]');
-        if (featuresContainer && experience?.features) {
+        if (featuresContainer) {
             featuresContainer.innerHTML = '';
-            experience.features.forEach(feature => {
+            const items = Array.isArray(experience?.features) ? experience.features : [];
+            items.forEach(feature => {
                 const item = document.createElement('div');
                 item.className = 'content-item';
                 if (typeof feature === 'object' && feature !== null) {
@@ -229,14 +235,15 @@ class FacilityMapper extends BaseDataMapper {
                 }
                 featuresContainer.appendChild(item);
             });
-            hasContent = true;
+            if (items.length) hasContent = true;
         }
 
         // 추가정보 매핑
         const additionalContainer = document.querySelector('[data-facility-additional-info]');
-        if (additionalContainer && experience?.additionalInfos) {
+        if (additionalContainer) {
             additionalContainer.innerHTML = '';
-            experience.additionalInfos.forEach(info => {
+            const items = Array.isArray(experience?.additionalInfos) ? experience.additionalInfos : [];
+            items.forEach(info => {
                 const item = document.createElement('div');
                 item.className = 'content-item';
                 if (typeof info === 'object' && info !== null) {
@@ -249,14 +256,15 @@ class FacilityMapper extends BaseDataMapper {
                 }
                 additionalContainer.appendChild(item);
             });
-            hasContent = true;
+            if (items.length) hasContent = true;
         }
 
         // 이용혜택 매핑
         const benefitsContainer = document.querySelector('[data-facility-benefits]');
-        if (benefitsContainer && experience?.benefits) {
+        if (benefitsContainer) {
             benefitsContainer.innerHTML = '';
-            experience.benefits.forEach(benefit => {
+            const items = Array.isArray(experience?.benefits) ? experience.benefits : [];
+            items.forEach(benefit => {
                 const item = document.createElement('div');
                 item.className = 'content-item';
                 if (typeof benefit === 'object' && benefit !== null) {
@@ -269,14 +277,12 @@ class FacilityMapper extends BaseDataMapper {
                 }
                 benefitsContainer.appendChild(item);
             });
-            hasContent = true;
+            if (items.length) hasContent = true;
         }
 
         // 섹션 표시/숨김
-        if (hasContent) {
-            usageSection.classList.add('has-content');
-            usageSection.style.display = '';
-        }
+        usageSection.classList.toggle('has-content', hasContent);
+        usageSection.style.display = hasContent ? '' : 'none';
 
         // 박스별 표시/숨김
         const boxes = usageSection.querySelectorAll('.usage-box');

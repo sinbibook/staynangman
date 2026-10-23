@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.54.0",
-    "generatedAt": "2026-10-23T00:04:10.236965036Z",
+    "version": "1.55.0",
+    "generatedAt": "2026-10-23T00:04:34.608676727Z",
     "templateType": "full_banner_wipe",
     "propertyId": "65874f96-97a7-46b7-82f3-6de0145cf7b3",
     "homepageId": "f1943f7e-912c-42ea-85c7-b0fb7408259e"
@@ -29,6 +29,9 @@
     "domain": "staynangman.kr",
     "realtimeBookingId": "https://map.naver.com/p/entry/place/2005892200",
     "ybsId": "79354",
+    "tripPropertyId": "10490",
+    "partnerType": "distributor_b",
+    "tripProviderName": "(주)신비서",
     "amenities": [
       "흡연구역(지정장소)",
       "주차장"
@@ -606,10 +609,7 @@
         "surrounding": [ ],
         "commonArea": [ ]
       }
-    ],
-    "tripPropertyId": "10490",
-    "partnerType": "distributor_b",
-    "tripProviderName": "(주)신비서"
+    ]
   },
   "rooms": [
     {

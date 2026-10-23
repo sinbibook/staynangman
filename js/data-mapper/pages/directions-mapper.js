@@ -117,10 +117,13 @@ class DirectionsMapper extends BaseDataMapper {
 
         if (!notesElement) return;
 
-        // notice 데이터가 있으면 제목과 설명을 분리해서 표시
-        if (directionsData?.notice?.title && directionsData?.notice?.description) {
-            const title = this.sanitizeText(directionsData.notice.title);
-            const description = this.sanitizeText(directionsData.notice.description).replace(/\n/g, '<br>');
+        // notice 데이터가 있으면 제목과 설명을 분리해서 표시 (공백만 있는 값은 빈 값으로 취급)
+        const noticeTitle = (directionsData?.notice?.title || '').trim();
+        const noticeDescription = (directionsData?.notice?.description || '').trim();
+
+        if (noticeTitle && noticeDescription) {
+            const title = this.sanitizeText(noticeTitle);
+            const description = this.sanitizeText(noticeDescription).replace(/\n/g, '<br>');
 
             notesElement.innerHTML = `
                 <div class="note-title">${title}</div>

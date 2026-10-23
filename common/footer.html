@@ -26,7 +26,7 @@
             <!-- Left Section - 30% -->
             <div class="footer-left">
                 <div class="footer-logo-image">
-                    <!-- <img data-footer-logo src="images/logo.png" alt="로고" class="footer-logo-img"> -->
+                    <img data-footer-logo alt="로고" class="footer-logo-img" style="display:none;">
                 </div>
                 <div class="footer-logo-text" data-footer-logo-text></div>
                 <div class="footer-phone">
@@ -46,9 +46,6 @@
                         </div>
                         <div class="footer-info-line">
                             <span data-footer-business-number></span>
-                        </div>
-                        <div class="footer-info-line">
-                            <span>민박 신고 번호 : 사등면 37호</span>
                         </div>
                         <div class="footer-info-line">
                             <span data-footer-ecommerce></span>
@@ -81,6 +78,11 @@
                         </div>
                     </div>
                     <div class="footer-copyright">
+                        <!-- data-* 속성 : data-footer-rural-stay-mark-wrap (customFields.footer.ruralStayMark 가 있을 때만 노출, 기본 숨김)
+                             data-footer-rural-stay-mark : 농어촌민박사업자 이미지 (표시마크 + 신고번호, alt = description) -->
+                        <div class="footer-rural-stay-mark-wrap" data-footer-rural-stay-mark-wrap style="display: none;">
+                            <img class="footer-rural-stay-mark" src="" alt="농어촌민박사업자" data-footer-rural-stay-mark>
+                        </div>
                         <p data-footer-copyright></p>
                     </div>
                 </div>
