@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "version": "1.53.0",
-    "generatedAt": "2026-10-21T06:37:56.866244231Z",
+    "version": "1.54.0",
+    "generatedAt": "2026-10-23T00:04:10.236965036Z",
     "templateType": "full_banner_wipe",
     "propertyId": "65874f96-97a7-46b7-82f3-6de0145cf7b3",
     "homepageId": "f1943f7e-912c-42ea-85c7-b0fb7408259e"
@@ -2936,7 +2936,14 @@
         }
       ],
       "footer": {
-        "ruralStayMark": null
+        "ruralStayMark": {
+          "id": "01a16612-74c1-7f20-a38f-40201723653c",
+          "url": "https://jlnjajtcnyqupfaqjerz.supabase.co/storage/v1/object/public/app-images/homepage/f1943f7e-912c-42ea-85c7-b0fb7408259e/rural_stay_mark/1792713847630-motd7bc2r7.png",
+          "sortOrder": 0,
+          "description": "",
+          "isSelected": true,
+          "blockId": null
+        }
       }
     }
   }
