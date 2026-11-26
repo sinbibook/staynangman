@@ -14,43 +14,56 @@ class MainMapper extends BaseDataMapper {
 
     /**
      * Hero 이미지 매핑
-     * homepage.customFields.pages.main.sections[0].hero.images → [data-main-hero-img]
+     * homepage.customFields.pages.main.sections[0].hero.images → [data-main-hero-slider]
+     * - 선택 이미지 1장: 슬라이드 1개만 그리고 네비게이션은 숨김 (기존 단일 이미지와 동일하게 보임)
+     * - 선택 이미지 2장 이상: index 메인 히어로와 같은 ‹ › + 프로그레스바 슬라이더 (js/pages/main.js)
      */
     mapHeroSlider() {
         if (!this.isDataLoaded) return;
 
         const heroData = this.safeGet(this.data, 'homepage.customFields.pages.main.sections.0.hero');
-        const heroImg = this.safeSelect('[data-main-hero-img]');
+        const slider = this.safeSelect('[data-main-hero-slider]');
         const isDemo = this.dataSource === 'demo-filled.json';
 
-        if (!heroImg) return;
+        if (!slider) return;
 
         // isSelected: true인 이미지만 필터링하고 sortOrder로 정렬
-        const selectedImages = heroData?.images
+        let images = Array.isArray(heroData?.images)
             ? heroData.images
-                .filter(img => img.isSelected === true)
+                .filter(img => img && img.isSelected === true && img.url)
                 .sort((a, b) => (a.sortOrder || 0) - (b.sortOrder || 0))
+                .map(img => ({ url: img.url, alt: this.sanitizeText(img.description, '메인 이미지') }))
             : [];
 
-        if (selectedImages.length === 0) {
-            if (isDemo) {
+        if (images.length === 0) {
+            images = isDemo
                 // demo 모드: fallback 이미지
-                heroImg.src = './images/hero.jpg';
-                heroImg.alt = '메인 이미지';
-                heroImg.classList.remove('empty-image-placeholder');
-            } else {
+                ? [{ url: './images/hero.jpg', alt: '메인 이미지' }]
                 // standard-template-data.json: empty-image placeholder
-                heroImg.src = ImageHelpers.EMPTY_IMAGE_WITH_ICON;
-                heroImg.alt = '이미지 없음';
-                heroImg.classList.add('empty-image-placeholder');
-            }
-            return;
+                : [{ url: ImageHelpers.EMPTY_IMAGE_WITH_ICON, alt: '이미지 없음', isEmpty: true }];
         }
 
-        // 첫 번째 이미지 적용
-        heroImg.src = selectedImages[0].url;
-        heroImg.alt = this.sanitizeText(selectedImages[0].description, '메인 이미지');
-        heroImg.classList.remove('empty-image-placeholder');
+        slider.innerHTML = '';
+        images.forEach((image, index) => {
+            const slide = document.createElement('div');
+            slide.className = index === 0 ? 'slide active' : 'slide';
+
+            const img = document.createElement('img');
+            img.src = image.url;
+            img.alt = image.alt;
+            img.loading = index === 0 ? 'eager' : 'lazy';
+            if (image.isEmpty) {
+                img.classList.add('empty-image-placeholder');
+            }
+
+            slide.appendChild(img);
+            slider.appendChild(slide);
+        });
+
+        // 슬라이드 개수에 맞춰 네비게이션 노출/자동재생 (재매핑 시에도 다시 초기화)
+        if (typeof window.initMainHeroSlider === 'function') {
+            window.initMainHeroSlider();
+        }
     }
 
     /**
