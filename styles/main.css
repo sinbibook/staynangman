@@ -530,3 +530,52 @@
         font-size: 13px;
     }
 }
+
+/* ============================================================================
+   Prologue Hero Slider Navigation
+   - index 메인 히어로와 같은 ‹ › 버튼 + 프로그레스바
+   - 페이지 타이틀(Prologue)이 중앙 정렬이라 네비도 중앙, 스크롤 다운 아이콘 바로 위에 둔다
+     (아이콘: bottom 30px + 높이 38px + bounce 10px ≈ 78px → 네비는 95px 위부터)
+   - 이미지 2장 이상일 때만 노출 (.is-active 는 js/pages/main.js 가 붙인다)
+   ============================================================================ */
+.main-hero-nav-overlay {
+    display: none;
+    position: absolute;
+    bottom: 95px;
+    left: 0;
+    width: 100%;
+    padding: 0 20px;
+    z-index: 5;
+    pointer-events: none; /* 빈 영역 터치는 슬라이더 스와이프로 */
+}
+
+.main-hero-nav-overlay.is-active {
+    display: block;
+}
+
+.main-hero-nav-container {
+    display: flex;
+    justify-content: center;
+}
+
+.main-hero-nav-overlay .slider-nav {
+    align-items: center;
+    pointer-events: auto;
+}
+
+@media (max-width: 480px) {
+    .main-hero-nav-overlay .slider-nav {
+        gap: 15px;
+        width: 100%;
+    }
+
+    .main-hero-nav-overlay .slider-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .main-hero-nav-overlay .progress-container {
+        max-width: 250px;
+    }
+}
